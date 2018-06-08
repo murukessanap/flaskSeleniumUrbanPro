@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # export PATH=$PATH:/home/muru/myFlaskPython
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,7 +26,12 @@ from selenium.webdriver.firefox.options import Options
 #options.add_argument("--headless")
 #driver = webdriver.Firefox(firefox_options=options, executable_path="/home/muru/myFlaskPython")
 #print("Firefox Headless Browser Invoked")
-driver = webdriver.PhantomJS(executable_path='/usr/local/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs')
+
+display = Display(visible=0, size=(1024, 768))
+display.start()
+
+driver = webdriver.Firefox()
+#driver = webdriver.PhantomJS(executable_path='/usr/local/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs')
 #driver.get('url')
 '''timeout = 5
 try:
